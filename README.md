@@ -15,6 +15,10 @@ Make sure to check the following files in order to understand how to config your
 
     $ git clone git@github.com:jawadshuaib/Setup-React-Vite-Tailwind-ESLint-Prettier.git YOUR_PROJECT_NAME
 
+    Now remove existing github repo
+
+    $ git remote remove origin
+
 ### Install the dependencies
 
     $ npm install
