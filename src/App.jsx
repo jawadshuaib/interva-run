@@ -4,14 +4,16 @@ import './App.css';
 import Dashboard from './features/dashboard/Dashboard';
 import OAuthCallback from './features/authentication/OAuthCallback';
 import Test from './features/dashboard/Test';
+import PageNotFound from './features/dashboard/PageNotFound';
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<Dashboard />} />
         <Route path="/test" element={<Test />} />
         <Route path="/auth/fitbit" element={<OAuthCallback />} />
-        <Route path="/" element={<Dashboard />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Router>
   );
