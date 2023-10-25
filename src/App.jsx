@@ -8,7 +8,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/auth/fitbit" element={<OAuthCallback />} />
+        <Route path="/auth" element={<OAuthCallback />} />
         <Route path="/" element={<Dashboard />} />
       </Routes>
     </Router>
