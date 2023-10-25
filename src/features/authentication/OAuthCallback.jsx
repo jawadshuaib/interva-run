@@ -21,10 +21,10 @@ export default function OAuthCallback() {
           // dispatch(setAccessToken(response.data.access_token));
           // dispatch(setExpiresIn(response.data.expires_in));
           // dispatch(setRefreshToken(response.data.refresh_token));
-          console.log(response);
           localStorage.setItem('accessToken', response.data.access_token);
           localStorage.setItem('expiresIn', response.data.expires_in);
           localStorage.setItem('refreshToken', response.data.refresh_token);
+          localStorage.setItem('userId', response.data.user_id);
         })
         .catch((error) => {
           // Handle any errors
