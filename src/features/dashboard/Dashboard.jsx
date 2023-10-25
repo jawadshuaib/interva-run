@@ -1,6 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 export default function Home() {
+  const { accessToken } = useSelector((state) => state.auth);
+
+  console.log(accessToken);
+
   const handleFitbitAuth = () => {
     // Define your Fitbit OAuth parameters
     const fitbitOAuthUrl = 'https://www.fitbit.com/oauth2/authorize';

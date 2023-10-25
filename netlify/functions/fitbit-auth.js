@@ -36,7 +36,7 @@ export async function handler(event) {
     return {
       statusCode: 500,
       body: JSON.stringify({
-        error: `Token exchange failed -- ${clientId} -- ${code} -- ${error}`,
+        error: `Token exchange failed: ${error}`,
       }),
     };
   }
