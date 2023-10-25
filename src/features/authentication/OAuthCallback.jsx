@@ -23,14 +23,12 @@ export default function OAuthCallback() {
         .post(`/.netlify/functions/fitbit-auth?code=${code}`)
         .then((response) => {
           // Store the access token and refresh token securely (e.g., in a state or local storage)
-          console.log(response.data.access_token);
           dispatch(setAccessToken(response.data.access_token));
           dispatch(setExpiresIn(response.data.expires_in));
           dispatch(setRefreshToken(response.data.refresh_token));
         })
         .catch((error) => {
           // Handle any errors
-          console.log(error);
           dispatch(setError(error));
         })
         .finally(() => {
