@@ -14,5 +14,9 @@ export default function AuthenticationBtn() {
     window.location.href = `${fitbitOAuthUrl}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}&response_type=code`;
   };
 
-  return <Button onClick={handleFitbitAuth}>Authenticate</Button>;
+  return (
+    <Button onClick={handleFitbitAuth} customClass="text-3xl">
+      Authenticate
+    </Button>
+  );
 }

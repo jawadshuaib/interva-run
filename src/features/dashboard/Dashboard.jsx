@@ -2,14 +2,14 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import AuthenticationBtn from '../authentication/AuthenticationBtn';
 
-export default function Home() {
+export default function Dashboard() {
   const { accessToken } = useSelector((state) => state.auth);
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline grid h-screen place-items-center">
-        {accessToken === null(<AuthenticationBtn />)}
-        {accessToken !== null(<div>Authenticated with {accessToken}</div>)}
+    <div className="dark:bg-slate-800">
+      <h1 className="grid h-screen place-items-center">
+        {accessToken === null && <AuthenticationBtn />}
+        {accessToken !== null && <div>Authenticated with {accessToken}</div>}
       </h1>
     </div>
   );
