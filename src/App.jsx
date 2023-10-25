@@ -1,12 +1,17 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import { Provider } from 'react-redux';
 import './App.css';
+import Dashboard from './features/dashboard/Dashboard';
+import AuthCallback from './features/authentication/AuthCallback';
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline grid h-screen place-items-center">
-        Hello world!
-      </h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/auth/fitbit" component={AuthCallback} />
+        <Route path="/" element={<Dashboard />} />
+      </Routes>
+    </Router>
   );
 }
 
