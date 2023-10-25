@@ -8,7 +8,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/auth/fitbit" component={AuthCallback} />
+        <Route path="/auth/fitbit" element={<AuthCallback />} />
         <Route path="/" element={<Dashboard />} />
       </Routes>
     </Router>
