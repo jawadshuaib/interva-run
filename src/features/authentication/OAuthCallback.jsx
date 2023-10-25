@@ -6,11 +6,15 @@ export default function OAuthCallback() {
   useEffect(() => {
     // Obtain the authorization code from the URL query parameters
     const code = new URLSearchParams(window.location.search).get('code');
-
+    // /.netlify/functions/fitbit-auth
     if (code) {
+      console.log('CODE ', code);
+      // const handleFitbitAuth = () => {
+      //   window.location.href = `/.netlify/functions/fitbit-auth?code=${code}`;
+      // };
       // Send a POST request to exchange the authorization code for tokens
       axios
-        .post('/fitbit/token-exchange', { code })
+        .post(`/.netlify/functions/fitbit-auth`, { code })
         .then((response) => {
           // Store the access token and refresh token securely (e.g., in a state or local storage)
           console.log(response);
