@@ -4,7 +4,7 @@ function App() {
   return (
     <div className="App">
       <h1 className="text-3xl font-bold underline grid h-screen place-items-center">
-        Hello world of fitness!
+        Hello world!
       </h1>
     </div>
   );
