@@ -2,14 +2,8 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import {
-  setAccessToken,
-  setError,
-  setExpiresIn,
-  setRefreshToken,
-} from './authSlice';
+import { setError } from './authSlice';
 import { useNavigate } from 'react-router-dom';
-import useLocalStorage from './useLocalStorage';
 
 export default function OAuthCallback() {
   const dispatch = useDispatch();
@@ -24,13 +18,22 @@ export default function OAuthCallback() {
         .post(`/.netlify/functions/fitbit-auth?code=${code}`)
         .then((response) => {
           // Store the access token and refresh token securely (e.g., in a state or local storage)
-          dispatch(setAccessToken(response.data.access_token));
-          dispatch(setExpiresIn(response.data.expires_in));
-          dispatch(setRefreshToken(response.data.refresh_token));
+          // dispatch(setAccessToken(response.data.access_token));
+          // dispatch(setExpiresIn(response.data.expires_in));
+          // dispatch(setRefreshToken(response.data.refresh_token));
 
-          useLocalStorage('accessToken', response.data.access_token);
-          useLocalStorage('expiresIn', response.data.expires_in);
-          useLocalStorage('refreshToken', response.data.refresh_token);
+          localStorage.setItem(
+            'accessToken',
+            JSON.stringify(response.data.access_token),
+          );
+          localStorage.setItem(
+            'expiresIn',
+            JSON.stringify(response.data.expires_in),
+          );
+          localStorage.setItem(
+            'refreshToken',
+            JSON.stringify(response.data.refresh_token),
+          );
         })
         .catch((error) => {
           // Handle any errors

@@ -1,13 +1,10 @@
 import React from 'react';
 // import { useSelector } from 'react-redux';
 import AuthenticationBtn from '../authentication/AuthenticationBtn';
-import useLocalStorage from '../authentication/useLocalStorage';
 
 export default function Dashboard() {
-  const [accessToken] = useLocalStorage('accessToken', null);
+  const accessToken = localStorage.getItem('accessToken');
   console.log(accessToken);
-  // const { accessToken } = useSelector((state) => state.auth);
-
   return (
     <div className="dark:bg-slate-800">
       <h1 className="grid h-screen place-items-center">
