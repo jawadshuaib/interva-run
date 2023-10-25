@@ -14,7 +14,7 @@ export default function OAuthCallback() {
       // };
       // Send a POST request to exchange the authorization code for tokens
       axios
-        .post(`/.netlify/functions/fitbit-auth`, { code })
+        .post(`/.netlify/functions/fitbit-auth?code=${code}`, { code })
         .then((response) => {
           // Store the access token and refresh token securely (e.g., in a state or local storage)
           console.log(response);
