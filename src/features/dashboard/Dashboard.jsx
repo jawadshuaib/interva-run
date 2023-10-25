@@ -5,7 +5,7 @@ import useLocalStorage from '../authentication/useLocalStorage';
 
 export default function Dashboard() {
   const [accessToken] = useLocalStorage('accessToken', null);
-
+  console.log(accessToken);
   // const { accessToken } = useSelector((state) => state.auth);
 
   return (
