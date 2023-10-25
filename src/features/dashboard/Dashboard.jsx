@@ -1,9 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import AuthenticationBtn from '../authentication/AuthenticationBtn';
+import useLocalStorage from '../authentication/useLocalStorage';
 
 export default function Dashboard() {
-  const { accessToken } = useSelector((state) => state.auth);
+  const [accessToken] = useLocalStorage('accessToken', null);
+
+  // const { accessToken } = useSelector((state) => state.auth);
 
   return (
     <div className="dark:bg-slate-800">

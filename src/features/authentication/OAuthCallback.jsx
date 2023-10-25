@@ -9,6 +9,7 @@ import {
   setRefreshToken,
 } from './authSlice';
 import { useNavigate } from 'react-router-dom';
+import useLocalStorage from './useLocalStorage';
 
 export default function OAuthCallback() {
   const dispatch = useDispatch();
@@ -26,6 +27,10 @@ export default function OAuthCallback() {
           dispatch(setAccessToken(response.data.access_token));
           dispatch(setExpiresIn(response.data.expires_in));
           dispatch(setRefreshToken(response.data.refresh_token));
+
+          useLocalStorage('accessToken', response.data.access_token);
+          useLocalStorage('expiresIn', response.data.expires_in);
+          useLocalStorage('refreshToken', response.data.refresh_token);
         })
         .catch((error) => {
           // Handle any errors
