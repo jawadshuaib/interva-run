@@ -22,18 +22,9 @@ export default function OAuthCallback() {
           // dispatch(setExpiresIn(response.data.expires_in));
           // dispatch(setRefreshToken(response.data.refresh_token));
 
-          localStorage.setItem(
-            'accessToken',
-            JSON.stringify(response.data.access_token),
-          );
-          localStorage.setItem(
-            'expiresIn',
-            JSON.stringify(response.data.expires_in),
-          );
-          localStorage.setItem(
-            'refreshToken',
-            JSON.stringify(response.data.refresh_token),
-          );
+          localStorage.setItem('accessToken', response.data.access_token);
+          localStorage.setItem('expiresIn', response.data.expires_in);
+          localStorage.setItem('refreshToken', response.data.refresh_token);
         })
         .catch((error) => {
           // Handle any errors
