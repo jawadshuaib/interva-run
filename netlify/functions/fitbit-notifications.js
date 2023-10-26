@@ -3,6 +3,7 @@
 // import WebSocket from 'ws';
 
 export async function handler(event) {
+  console.log('Test', event);
   if (event.httpMethod === 'POST') {
     // Parse the JSON data from the incoming request body
     const requestData = JSON.parse(event.body);
