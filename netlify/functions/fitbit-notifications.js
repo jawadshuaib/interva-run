@@ -3,7 +3,6 @@ import http from 'http';
 import WebSocket from 'ws';
 
 const server = http.createServer((req, res) => {
-  // Handle HTTP POST requests for Fitbit notifications
   if (req.method === 'POST' && req.url === '/fitbit-notifications') {
     let data = '';
 
@@ -21,14 +20,11 @@ const server = http.createServer((req, res) => {
         // Broadcast the notification to connected WebSocket clients
         wss.clients.forEach((client) => {
           if (client.readyState === WebSocket.OPEN) {
-            client.send(JSON.stringify(requestData));
-
-            // Emit the 'notification' event here to send notifications to clients
+            // Emit the 'notification' event to send notifications to clients
             client.emit('notification', requestData);
           }
         });
 
-        // Respond with an HTTP 204 No Content status code to acknowledge receipt
         res.writeHead(204);
         res.end();
       } catch (error) {
@@ -38,21 +34,12 @@ const server = http.createServer((req, res) => {
       }
     });
   } else {
-    // Respond with an error status code for unsupported HTTP methods or routes
     res.writeHead(405); // Method Not Allowed
     res.end('Method Not Allowed');
   }
 });
 
 const wss = new WebSocket.Server({ server });
-
-wss.on('connection', (ws) => {
-  // Handle WebSocket connection if needed
-  ws.on('message', (message) => {
-    // Handle WebSocket messages if needed
-    console.log(message);
-  });
-});
 
 server.listen(8080, () => {
   console.log('Server is listening on port 8080');
