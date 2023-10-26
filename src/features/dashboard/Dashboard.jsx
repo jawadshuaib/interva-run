@@ -1,32 +1,33 @@
-import React, { useEffect } from 'react';
-import io from 'socket.io-client';
+import React from 'react';
+// import io from 'socket.io-client';
 
 // import { useSelector } from 'react-redux';
 import AuthenticationBtn from '../authentication/AuthenticationBtn';
 
 export default function Dashboard() {
   const accessToken = localStorage.getItem('accessToken');
+  console.log(accessToken);
+  // const [notifications, setNotifications] = React.useState([]);
 
-  const [notifications, setNotifications] = React.useState([]);
+  // useEffect(() => {
+  //   // Replace with the URL of your server where WebSocket is hosted
+  //   const socket = io(
+  //     'https://interva-run.netlify.app/.netlify/functions/fitbit-notifications',
+  //   );
 
-  useEffect(() => {
-    // Replace with the URL of your server where WebSocket is hosted
-    const socket = io(
-      'https://interva-run.netlify.app/.netlify/functions/fitbit-notifications',
-    );
+  //   socket.on('notification', (data) => {
+  //     // Handle incoming notifications
+  //     setNotifications((prevNotifications) => [...prevNotifications, data]);
+  //   });
 
-    socket.on('notification', (data) => {
-      // Handle incoming notifications
-      setNotifications((prevNotifications) => [...prevNotifications, data]);
-    });
+  //   // Clean up the WebSocket connection when the component unmounts
+  //   return () => {
+  //     socket.disconnect();
+  //   };
+  // }, []);
 
-    // Clean up the WebSocket connection when the component unmounts
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
+  // console.log(notifications);
 
-  console.log(notifications);
   // useEffect(() => {
   //   const socket = io('/.netlify/functions/fitbit-notifications'); // Replace with your server URL
 
