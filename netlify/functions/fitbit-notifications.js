@@ -2,26 +2,26 @@
 // import http from 'http';
 // import WebSocket from 'ws';
 
-export async function handler(event) {
-  console.log('Test', event);
-  if (event.httpMethod === 'POST') {
-    // Parse the JSON data from the incoming request body
-    const requestData = JSON.parse(event.body);
+// export async function handler(event) {
+//   console.log('Test', event);
+//   if (event.httpMethod === 'POST') {
+//     // Parse the JSON data from the incoming request body
+//     const requestData = JSON.parse(event.body);
 
-    // Log the Fitbit notifications
-    console.log('Received Fitbit Notifications:', requestData);
+//     // Log the Fitbit notifications
+//     console.log('Received Fitbit Notifications:', requestData);
 
-    // Respond with an HTTP 204 No Content status code to acknowledge receipt
-    return {
-      statusCode: 204,
-    };
-  } else {
-    // Respond with an error status code for unsupported HTTP methods
-    return {
-      statusCode: 405, // Method Not Allowed
-    };
-  }
-}
+//     // Respond with an HTTP 204 No Content status code to acknowledge receipt
+//     return {
+//       statusCode: 204,
+//     };
+//   } else {
+//     // Respond with an error status code for unsupported HTTP methods
+//     return {
+//       statusCode: 405, // Method Not Allowed
+//     };
+//   }
+// }
 
 // const server = http.createServer((req, res) => {
 //   console.log('TEST 1');
@@ -100,24 +100,24 @@ export async function handler(event) {
 // }
 
 // For verification
-// export async function handler(event) {
-//   const queryParams = event.queryStringParameters;
-//   const verifyCode = queryParams?.verify;
+export async function handler(event) {
+  const queryParams = event.queryStringParameters;
+  const verifyCode = queryParams?.verify;
 
-//   if (verifyCode !== undefined) {
-//     if (
-//       verifyCode ===
-//       '171ce6758e342278717f95a2034dde6cc4c1a584351b1be329adbe3cfd736039'
-//     ) {
-//       // Respond with HTTP 204 for the correct verification code
-//       return {
-//         statusCode: 204,
-//       };
-//     } else {
-//       // Respond with HTTP 404 for an incorrect verification code
-//       return {
-//         statusCode: 404,
-//       };
-//     }
-//   }
-// }
+  if (verifyCode !== undefined) {
+    if (
+      verifyCode ===
+      '171ce6758e342278717f95a2034dde6cc4c1a584351b1be329adbe3cfd736039'
+    ) {
+      // Respond with HTTP 204 for the correct verification code
+      return {
+        statusCode: 204,
+      };
+    } else {
+      // Respond with HTTP 404 for an incorrect verification code
+      return {
+        statusCode: 404,
+      };
+    }
+  }
+}
