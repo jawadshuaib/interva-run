@@ -11,7 +11,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     // Replace with the URL of your server where WebSocket is hosted
-    const socket = io('/.netlify/functions/fitbit-notifications');
+    const socket = io('https://interva-run.netlify.app/fitbit-notifications');
 
     socket.on('notification', (data) => {
       // Handle incoming notifications
