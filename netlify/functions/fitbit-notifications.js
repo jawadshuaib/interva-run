@@ -1,6 +1,26 @@
 /* eslint-env node */
 // import http from 'http';
-import WebSocket from 'ws';
+// import WebSocket from 'ws';
+
+export async function handler(event) {
+  if (event.httpMethod === 'POST') {
+    // Parse the JSON data from the incoming request body
+    const requestData = JSON.parse(event.body);
+
+    // Log the Fitbit notifications
+    console.log('Received Fitbit Notifications:', requestData);
+
+    // Respond with an HTTP 204 No Content status code to acknowledge receipt
+    return {
+      statusCode: 204,
+    };
+  } else {
+    // Respond with an error status code for unsupported HTTP methods
+    return {
+      statusCode: 405, // Method Not Allowed
+    };
+  }
+}
 
 // const server = http.createServer((req, res) => {
 //   console.log('TEST 1');
@@ -43,40 +63,40 @@ import WebSocket from 'ws';
 //   }
 // });
 
-const wss = new WebSocket.Server({ server });
+// const wss = new WebSocket.Server({ server });
 
-server.listen(8080, () => {
-  console.log('Server is listening on port 8080');
-});
+// server.listen(8080, () => {
+//   console.log('Server is listening on port 8080');
+// });
 
-wss.on('connection', (ws) => {
-  // Handle WebSocket connection if needed
-  ws.on('message', (message) => {
-    // Handle WebSocket messages if needed
-  });
-});
+// wss.on('connection', (ws) => {
+//   // Handle WebSocket connection if needed
+//   ws.on('message', (message) => {
+//     // Handle WebSocket messages if needed
+//   });
+// });
 
-export async function handler(event) {
-  if (event.httpMethod === 'POST') {
-    const requestData = JSON.parse(event.body);
-    // Handle and process the Fitbit notifications here
+// export async function handler(event) {
+//   if (event.httpMethod === 'POST') {
+//     const requestData = JSON.parse(event.body);
+//     // Handle and process the Fitbit notifications here
 
-    // Broadcast the notification to connected WebSocket clients
-    wss.clients.forEach((client) => {
-      if (client.readyState === WebSocket.OPEN) {
-        client.send(JSON.stringify(requestData));
-      }
-    });
+//     // Broadcast the notification to connected WebSocket clients
+//     wss.clients.forEach((client) => {
+//       if (client.readyState === WebSocket.OPEN) {
+//         client.send(JSON.stringify(requestData));
+//       }
+//     });
 
-    return {
-      statusCode: 204,
-    };
-  } else {
-    return {
-      statusCode: 405, // Method Not Allowed
-    };
-  }
-}
+//     return {
+//       statusCode: 204,
+//     };
+//   } else {
+//     return {
+//       statusCode: 405, // Method Not Allowed
+//     };
+//   }
+// }
 
 // For verification
 // export async function handler(event) {
