@@ -3,8 +3,11 @@ import http from 'http';
 import WebSocket from 'ws';
 
 const server = http.createServer((req, res) => {
-  if (req.method === 'POST' && req.url === '/fitbit-notifications') {
+  console.log('TEST 1');
+  if (req.method === 'POST') {
     let data = '';
+
+    console.log('TEST 2');
 
     req.on('data', (chunk) => {
       data += chunk;
@@ -12,6 +15,7 @@ const server = http.createServer((req, res) => {
 
     req.on('end', () => {
       try {
+        console.log('TEST 3');
         const requestData = JSON.parse(data);
 
         // Handle and process the Fitbit notifications here
