@@ -22,6 +22,9 @@ const server = http.createServer((req, res) => {
         wss.clients.forEach((client) => {
           if (client.readyState === WebSocket.OPEN) {
             client.send(JSON.stringify(requestData));
+
+            // Emit the 'notification' event here to send notifications to clients
+            client.emit('notification', requestData);
           }
         });
 
@@ -43,16 +46,24 @@ const server = http.createServer((req, res) => {
 
 const wss = new WebSocket.Server({ server });
 
+wss.on('connection', (ws) => {
+  // Handle WebSocket connection if needed
+  ws.on('message', (message) => {
+    // Handle WebSocket messages if needed
+    console.log(message);
+  });
+});
+
+server.listen(8080, () => {
+  console.log('Server is listening on port 8080');
+});
+
 // wss.on('connection', (ws) => {
 //   // Handle WebSocket connection if needed
 //   ws.on('message', (message) => {
 //     // Handle WebSocket messages if needed
 //   });
 // });
-
-server.listen(8080, () => {
-  console.log('Server is listening on port 8080');
-});
 
 // export async function handler(event) {
 //   if (event.httpMethod === 'POST') {
