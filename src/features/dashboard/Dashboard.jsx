@@ -11,7 +11,7 @@ export default function Dashboard() {
   React.useEffect(() => {
     // This classifies activity based on "fat burn", "cardio", and "peak"
     // const apiUrl = `https://api.fitbit.com/1/user/${userId}/activities/heart/date/2016-08-14/1m.json`;
-    const apiUrl = `https://api.fitbit.com/1/user/${userId}/hrv/date/2016-08-15.json`;
+    const apiUrl = `https://api.fitbit.com/1/user/${userId}/hrv/date/2016-08-04.json`;
 
     const headers = {
       Authorization: `Bearer ${accessToken}`,
