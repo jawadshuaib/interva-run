@@ -9,8 +9,8 @@ export default function Dashboard() {
   const userId = localStorage.getItem('userId');
 
   React.useEffect(() => {
-    // const apiUrl = `https://api.fitbit.com/1/user/${userId}/activities/heart/date/today/1m.json`;
-    const apiUrl = `https://api.fitbit.com/1/user/${userId}/hrv/date/2016-08-15.json`;
+    const apiUrl = `https://api.fitbit.com/1/user/${userId}/activities/heart/date/2016-08-14/1m.json`;
+    // const apiUrl = `https://api.fitbit.com/1/user/${userId}/hrv/date/2016-08-15.json`;
 
     const headers = {
       Authorization: `Bearer ${accessToken}`,
