@@ -25,7 +25,7 @@ function generateWorkout(workoutTime) {
 
   for (let i = 0; i < cycles; i++) {
     segments.push({
-      type: `${sprintTime} seconds sprint`,
+      type: 'sprint',
       duration: sprintTime,
     });
     workoutTime -= sprintTime;
@@ -33,7 +33,10 @@ function generateWorkout(workoutTime) {
     if (i === cycles - 1) break;
 
     if (workoutTime > walkTime) {
-      segments.push({ type: `${walkTime} seconds walk`, duration: walkTime });
+      segments.push({
+        type: 'walk',
+        duration: walkTime,
+      });
       workoutTime -= walkTime;
     }
   }
@@ -44,13 +47,21 @@ function generateWorkout(workoutTime) {
 // Helper function for generating the warmup phase
 function generateWarmup(totalSeconds) {
   const warmupTime = Math.round(totalSeconds * 0.2);
-  return [{ type: `Warmup - ${warmupTime} seconds`, duration: warmupTime }];
+  return [
+    {
+      type: 'warmup',
+      duration: warmupTime,
+    },
+  ];
 }
 
 // Helper function for generating the cooldown phase
 function generateCooldown(baseCooldownTime, extraTime) {
   const totalCooldown = baseCooldownTime + extraTime;
   return [
-    { type: `Cooldown - ${totalCooldown} seconds`, duration: totalCooldown },
+    {
+      type: 'cooldown',
+      duration: totalCooldown,
+    },
   ];
 }

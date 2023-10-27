@@ -35,7 +35,8 @@ function Intervals() {
   return (
     <div>
       <CurrentInterval
-        type={workout[currentIntervalIndex].type}
+        type="sprint"
+        // type={workout[currentIntervalIndex].type}
         duration={secondsRemaining}
       />
     </div>

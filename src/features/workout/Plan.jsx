@@ -14,14 +14,22 @@ export default function Plan() {
   }
 
   return (
-    <div>
-      <h2>We created the following workout for {minutes} minutes:</h2>
-      <ol>
+    <div className="bg-white p-8 rounded shadow-md  dark:bg-slate-600">
+      <h2 className="text-2xl mb-4 dark:text-slate-100">
+        We created the following workout for {minutes} minutes:
+      </h2>
+      <ol className="text-xl dark:text-slate-300">
         {hiitPlan.map((exercise) => (
-          <li key={uuidv4()}>{exercise.type}</li>
+          <li key={uuidv4()}>
+            {exercise.duration} seconds {exercise.type}
+          </li>
         ))}
       </ol>
-      <button type="button" onClick={handleStartWorkout}>
+      <button
+        type="button"
+        className="w-full bg-blue-500 text-white p-2 rounded dark:bg-slate-800"
+        onClick={handleStartWorkout}
+      >
         Start Workout
       </button>
     </div>

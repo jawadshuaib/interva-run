@@ -16,13 +16,15 @@ function App() {
   return (
     <Router>
       <Provider store={store}>
-        <Routes>
-          <Route path="/" element={<Navigate to="/dashboard" />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/workout-plan/:minutes" element={<Plan />} />
-          <Route path="/start-workout/:minutes" element={<Intervals />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
+        <div className="h-screen flex items-center justify-center bg-gray-100 dark:bg-slate-800">
+          <Routes>
+            <Route path="/" element={<Navigate to="/dashboard" />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/workout-plan/:minutes" element={<Plan />} />
+            <Route path="/start-workout/:minutes" element={<Intervals />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </div>
       </Provider>
     </Router>
   );
