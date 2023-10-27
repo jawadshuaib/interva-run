@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import PropTypes from 'prop-types';
 import CurrentInterval from './CurrentInterval';
 import { useParams } from 'react-router-dom';
-import { generateHIIT } from '../workout/workout-scripts';
+import { generateHIIT, remainingSprints } from '../workout/workout-scripts';
 
 function Intervals() {
   const { minutes } = useParams();
@@ -10,6 +10,8 @@ function Intervals() {
 
   const [currentIntervalIndex, setCurrentIntervalIndex] = useState(0);
   const [secondsRemaining, setSecondsRemaining] = useState(workout[0].duration);
+
+  const sprintsRemaining = remainingSprints(workout, currentIntervalIndex);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -35,9 +37,10 @@ function Intervals() {
   return (
     <div>
       <CurrentInterval
-        type="sprint"
-        // type={workout[currentIntervalIndex].type}
+        // type="sprint"
+        type={workout[currentIntervalIndex].type}
         duration={secondsRemaining}
+        sprintsRemaining={sprintsRemaining}
       />
     </div>
   );

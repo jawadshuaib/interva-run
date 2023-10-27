@@ -65,3 +65,15 @@ function generateCooldown(baseCooldownTime, extraTime) {
     },
   ];
 }
+
+export function remainingSprints(hiit, currentIntervalIndex) {
+  let count = 0;
+
+  for (let i = currentIntervalIndex; i < hiit.length; i++) {
+    if (hiit[i].type === 'sprint') {
+      count++;
+    }
+  }
+
+  return count;
+}
