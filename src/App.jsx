@@ -7,9 +7,10 @@ import {
 import { Provider } from 'react-redux';
 import store from './store';
 import './App.css';
-import Dashboard from './features/dashboard/Dashboard';
-import OAuthCallback from './features/authentication/OAuthCallback';
+import Dashboard from './features/workout/Dashboard';
 import PageNotFound from './features/pages/PageNotFound';
+import Plan from './features/workout/Plan';
+import Intervals from './features/intervals/Intervals';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/dashboard" />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/auth/fitbit" element={<OAuthCallback />} />
+          <Route path="/workout-plan/:minutes" element={<Plan />} />
+          <Route path="/start-workout/:minutes" element={<Intervals />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Provider>
