@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getLocalStorageValue } from '../../utils/scripts';
 import Button from '../../ui/Button';
 import Input from '../../ui/Input';
 import Heading from '../../ui/Heading';
-import { getLocalStorageValue } from '../../utils/scripts';
 
 export default function Dashboard() {
   const preset = {
@@ -30,9 +30,12 @@ export default function Dashboard() {
   const handleCreateWorkoutPlan = () => {
     // Set the minutes and interval in local storage
     // if they are different from the preset values
-    console.log(minutes, localStorage.getItem('minutes'));
-    minutes !== preset.minutes && localStorage.setItem('minutes', minutes);
-    interval !== preset.interval && localStorage.setItem('interval', interval);
+    minutes !== preset.minutes
+      ? localStorage.setItem('minutes', minutes)
+      : localStorage.removeItem('minutes');
+    interval !== preset.interval
+      ? localStorage.setItem('interval', interval)
+      : localStorage.removeItem('interval');
 
     // Navigate to the workout plan
     minutes > 0 &&

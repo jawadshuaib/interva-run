@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-// import PropTypes from 'prop-types';
-import CurrentInterval from './CurrentInterval';
 import { useParams } from 'react-router-dom';
 import { generateHIIT, remainingSprints } from '../../utils/scripts';
+import CurrentInterval from './CurrentInterval';
 
 function Intervals() {
   const { minutes } = useParams();

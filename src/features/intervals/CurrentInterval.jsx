@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { ExerciseType, bgColorByType } from '../../utils/scripts';
-import Button from '../../ui/Button';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Confetti from 'react-confetti';
 import { useConfetti } from './useConfetti';
+import { ExerciseType, bgColorByType } from '../../utils/scripts';
+import Button from '../../ui/Button';
 
 export default function CurrentInterval({ type, duration, sprintsRemaining }) {
   const navigate = useNavigate();
