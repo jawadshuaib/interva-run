@@ -1,23 +1,12 @@
-# Setup Vite React and Tailwind with Eslint & Prettier
+# Interva Run - App for High Intensity Interval Training
 
-This repository provides a quick boilerplate setup for Vite React with eslint & prettier using airbnb as a base style guide. Support for Tailwind has also been added.
+View live: https://interva-run.netlify.app/
 
-By default, the project comes installed with Redux using Redux Toolkit.
+High intensity interval training markedly improves both aerobic and anaerobic fitness. This app helps plan and execute an HIIT workout session.
 
-Make sure to check the following files in order to understand how to config your vite project as your needs:
-
-- .package.json
-- .eslintrc.json
-- .prettierrc.json
-- vite.config.js
+<img src="./src/animation.gif" alt="Interva Run App" title="Interva Run App" width="400px"/>
 
 ## Try it out
-
-    $ git clone git@github.com:jawadshuaib/Setup-React-Vite-Tailwind-ESLint-Prettier.git YOUR_PROJECT_NAME
-
-    Now remove existing github repo
-
-    $ git remote remove origin
 
 ### Install the dependencies
 
