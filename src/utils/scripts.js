@@ -113,35 +113,35 @@ export function bgColorByType(type, withGradient = true) {
       bgColor = `${
         withGradient
           ? 'bg-gradient-to-br from-orange-600 to-orange-800'
-          : 'bg-slate-100 dark:border-l-4 border-slate-500'
+          : 'bg-slate-100 border-slate-500'
       }`;
       break;
     case ExerciseType.SPRINT:
       bgColor = `${
         withGradient
           ? 'bg-gradient-to-br from-green-600 to-green-800'
-          : 'bg-slate-100 border-x-4 dark:border-l-4 border-slate-200'
+          : 'bg-slate-100 border-x-4 border-slate-200'
       } `;
       break;
     case ExerciseType.WALK:
       bgColor = `${
         withGradient
           ? 'bg-gradient-to-br from-yellow-600 to-yellow-800'
-          : 'bg-slate-100 dark:border-l-4 border-slate-500'
+          : 'bg-slate-100 border-slate-500'
       } `;
       break;
     case ExerciseType.COOLDOWN:
       bgColor = `${
         withGradient
           ? 'bg-gradient-to-br from-blue-600 to-blue-800'
-          : 'bg-slate-100 dark:border-l-4 border-slate-500'
+          : 'bg-slate-100 border-slate-500'
       }`;
       break;
     case ExerciseType.FINISHED:
       bgColor = `${
         withGradient
           ? 'bg-gradient-to-br from-gray-400 to-gray-600'
-          : 'bg-slate-100 dark:border-l-4 border-slate-500'
+          : 'bg-slate-100 border-slate-500'
       }`;
       break;
     default:
