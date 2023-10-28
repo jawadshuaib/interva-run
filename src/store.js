@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import workoutReducer from './features/workout/workoutSlice';
+import workoutReducer from './features/setup/workoutSlice';
 
 const store = configureStore({
   reducer: {

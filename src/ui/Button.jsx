@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Button({ children, onClick, customClass }) {
+export default function Button({ children, fn, customClass }) {
   function handleOnClick() {
-    onClick();
+    fn();
   }
   return (
     <input
       type="button"
-      className={`${customClass} cursor-pointer bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-full dark:bg-slate-600 dark:text-slate-300`}
+      className={`${customClass} cursor-pointer w-full py-8 text-xl bg-blue-500 text-white p-2 rounded  dark:bg-slate-800 dark:hover:bg-slate-900`}
       onClick={handleOnClick}
       value={children}
     />
@@ -17,7 +17,7 @@ export default function Button({ children, onClick, customClass }) {
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired,
+  fn: PropTypes.func.isRequired,
   customClass: PropTypes.string,
 };
 

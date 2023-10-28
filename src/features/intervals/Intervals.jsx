@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import PropTypes from 'prop-types';
 import CurrentInterval from './CurrentInterval';
 import { useParams } from 'react-router-dom';
-import { generateHIIT, remainingSprints } from '../workout/workout-scripts';
+import { generateHIIT, remainingSprints } from '../../utils/scripts';
 
 function Intervals() {
   const { minutes } = useParams();
@@ -37,7 +37,7 @@ function Intervals() {
   return (
     <div>
       <CurrentInterval
-        // type="sprint"
+        // type="Finished"
         type={workout[currentIntervalIndex].type}
         duration={secondsRemaining}
         sprintsRemaining={sprintsRemaining}
