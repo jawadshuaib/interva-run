@@ -6,6 +6,7 @@ import Input from '../../ui/Input';
 import Heading from '../../ui/Heading';
 import Header from './Header';
 import Layout from './Layout';
+import Explanation from './Explanation';
 
 export default function Dashboard() {
   const preset = {
@@ -48,6 +49,7 @@ export default function Dashboard() {
   return (
     <Layout>
       <Header />
+      <Explanation />
       <div className="p-8">
         <Heading customClass="mb-4">
           How many minutes do you want to workout?
@@ -60,7 +62,7 @@ export default function Dashboard() {
           fnChange={(e) => setMinutes(e.target.value)}
           fnKeyDown={(e) => e.key === 'Enter' && handleCreateWorkoutPlan()}
         />
-        <Heading customClass="mb-4">How many seconds per interval?</Heading>
+        <Heading customClass="my-4">How many seconds per interval?</Heading>
         <Input
           type="number"
           placeholder="Enter seconds..."

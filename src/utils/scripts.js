@@ -152,7 +152,7 @@ export function bgColorByType(type, withGradient = true) {
 }
 
 export function paddingByType(type) {
-  console.log(type);
+  if (type === 'xxx') return;
   return `py-2`;
 
   // let padding;
