@@ -13,7 +13,7 @@ import Intervals from './features/intervals/Intervals';
 function App() {
   return (
     <Router>
-      <div className="h-screen flex items-center justify-center bg-slate-800">
+      <div className="flex items-center justify-center bg-slate-800">
         <Routes>
           <Route path="/" element={<Navigate to="/dashboard" />} />
           <Route path="/dashboard" element={<Dashboard />} />

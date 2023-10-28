@@ -2,11 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function List({ items, render, customClass }) {
-  return (
-    <ol className={`${customClass} text-xl dark:text-slate-300`}>
-      {items.map(render)}
-    </ol>
-  );
+  return <ol className={`${customClass} text-xl`}>{items.map(render)}</ol>;
 }
 
 List.propTypes = {

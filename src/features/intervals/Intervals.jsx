@@ -48,10 +48,10 @@ function Intervals() {
   return (
     <div>
       <CurrentInterval
-        type="sprint"
-        duration={10}
-        // type={workout[currentIntervalIndex].type}
-        // duration={secondsRemaining}
+        // type="sprint"
+        // duration={10}
+        type={workout[currentIntervalIndex].type}
+        duration={secondsRemaining}
         sprintsRemaining={sprintsRemaining}
       />
     </div>
