@@ -10,7 +10,7 @@ import Button from '../../ui/Button';
 export default function CurrentInterval({ type, duration, sprintsRemaining }) {
   const navigate = useNavigate();
   const { showConfetti, fadeOut, celebrate } = useConfetti();
-  const [isBlinking, triggerBlink] = useBlink(2000);
+  const [isBlinking, triggerBlink] = useBlink(1500);
 
   const bgColor = bgColorByType(type);
 

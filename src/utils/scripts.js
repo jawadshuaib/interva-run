@@ -6,9 +6,13 @@ export const ExerciseType = {
   FINISHED: 'Finished',
 };
 
+const ExerciseInterval = {
+  WARMUP: 0.4,
+  COOLDOWN: 0.1,
+};
 export function generateHIIT(minutes = 12, interval = 30) {
   const totalSeconds = minutes * 60;
-  const cooldownTimeBase = Math.round(totalSeconds * 0.1);
+  const cooldownTimeBase = Math.round(totalSeconds * ExerciseInterval.COOLDOWN);
   let workoutTime =
     totalSeconds - generateWarmup(totalSeconds)[0].duration - cooldownTimeBase;
 
@@ -63,7 +67,7 @@ function generateWorkout(workoutTime, interval) {
 
 // Helper function for generating the warmup phase
 function generateWarmup(totalSeconds) {
-  const warmupTime = Math.round(totalSeconds * 0.4);
+  const warmupTime = Math.round(totalSeconds * ExerciseInterval.WARMUP);
   return [
     {
       type: ExerciseType.WARMUP,
