@@ -1,9 +1,10 @@
 import React from 'react';
+import Heading from '../../ui/Heading';
 
 export default function PageNotFound() {
   return (
     <div>
-      <h1>Page Not Found</h1>
+      <Heading>Page Not Found</Heading>
       <p>Sorry, the page you are looking for does not exist.</p>
     </div>
   );
