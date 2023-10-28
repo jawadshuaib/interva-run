@@ -11,7 +11,7 @@ export default function Input({
 }) {
   return (
     <input
-      className={`${customClass} text-xl p-2 w-full mb-4 bg-slate-400`}
+      className={`${customClass} text-xl p-2 pt-4 w-full mb-4 border-2 dark:border-slate-800 dark:bg-slate-400`}
       type={type}
       placeholder={placeholder}
       value={value}

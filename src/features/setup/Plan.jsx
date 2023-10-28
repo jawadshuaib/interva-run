@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import {
   ExerciseType,
   bgColorByType,
+  formatTime,
   generateHIIT,
   paddingByType,
 } from '../../utils/scripts';
@@ -38,13 +39,13 @@ export default function Plan() {
           render={(exercise) => (
             <li
               key={uuidv4()}
-              className={`text-center rounded-md my-1 ${paddingByType(
+              className={`text-center rounded-md pt-4 my-1 ${paddingByType(
                 exercise.type,
               )} ${bgColorByType(exercise.type, false)}`}
             >
               {exercise.type === ExerciseType.FINISHED
                 ? exercise.type
-                : `${exercise.duration} seconds ${exercise.type}`}
+                : `${formatTime(exercise.duration)} ${exercise.type}`}
             </li>
           )}
         />

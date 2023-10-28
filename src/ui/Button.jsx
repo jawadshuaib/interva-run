@@ -8,7 +8,7 @@ export default function Button({ children, fn, customClass }) {
   return (
     <input
       type="button"
-      className={`${customClass} cursor-pointer w-full py-8 text-xl bg-blue-500 text-white p-2 rounded  dark:bg-slate-800 dark:hover:bg-slate-900`}
+      className={`${customClass} cursor-pointer w-full py-8 text-xl bg-blue-500 hover:bg-blue-600 text-white p-2 rounded  dark:bg-slate-800 dark:hover:bg-slate-900`}
       onClick={handleOnClick}
       value={children}
     />

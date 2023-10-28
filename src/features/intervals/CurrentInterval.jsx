@@ -22,7 +22,7 @@ export default function CurrentInterval({ type, duration, sprintsRemaining }) {
   };
   return (
     <div
-      className={`w-144 md:w-192 mx-auto text-center capitalize dark:text-slate-400 `}
+      className={`w-144 md:w-192 mx-auto text-center capitalize text-slate-400 `}
     >
       {showConfetti && (
         <Confetti gravity={0.3} className={fadeOut ? 'fade-out' : ''} />
@@ -45,9 +45,9 @@ export default function CurrentInterval({ type, duration, sprintsRemaining }) {
       </div>
 
       {sprintsRemaining > 0 && (
-        <div className="flex items-center justify-center text-2xl mt-3">
+        <div className="flex items-center justify-center text-2xl  mt-3">
           Sprints remaining{' '}
-          <span className="bg-yellow-300 ml-2 px-1 pt-1 rounded-lg dark:text-black">
+          <span className="bg-yellow-300 ml-2 px-1 pt-1 rounded-lg  text-black">
             {sprintsRemaining}
           </span>
         </div>

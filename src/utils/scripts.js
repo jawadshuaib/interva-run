@@ -113,35 +113,35 @@ export function bgColorByType(type, withGradient = true) {
       bgColor = `${
         withGradient
           ? 'bg-gradient-to-br from-orange-600 to-orange-800'
-          : 'border-l-4 border-slate-500 hover:border-orange-600 bg-slate-500'
+          : 'bg-slate-100 dark:border-l-4 border-slate-500 dark:hover:border-orange-600 dark:bg-slate-500'
       }`;
       break;
     case ExerciseType.SPRINT:
       bgColor = `${
         withGradient
           ? 'bg-gradient-to-br from-green-600 to-green-800'
-          : 'border-l-4 border-slate-500 hover:border-green-600 bg-slate-500'
+          : 'bg-slate-100 border-x-4 dark:border-l-4 border-slate-200 dark:hover:border-green-600 dark:bg-slate-500'
       } `;
       break;
     case ExerciseType.WALK:
       bgColor = `${
         withGradient
           ? 'bg-gradient-to-br from-yellow-600 to-yellow-800'
-          : 'border-l-4 border-slate-500 hover:border-yellow-600 bg-slate-500'
+          : 'bg-slate-100 dark:border-l-4 border-slate-500 dark:hover:border-yellow-600 dark:bg-slate-500'
       } `;
       break;
     case ExerciseType.COOLDOWN:
       bgColor = `${
         withGradient
           ? 'bg-gradient-to-br from-blue-600 to-blue-800'
-          : 'border-l-4 border-slate-500 hover:border-blue-600 bg-slate-500'
+          : 'bg-slate-100 dark:border-l-4 border-slate-500 dark:hover:border-blue-600 dark:bg-slate-500'
       }`;
       break;
     case ExerciseType.FINISHED:
       bgColor = `${
         withGradient
           ? 'bg-gradient-to-br from-gray-400 to-gray-600'
-          : 'border-l-4 border-slate-500 hover:border-slate-800 bg-slate-500'
+          : 'bg-slate-100 dark:border-l-4 border-slate-500 dark:hover:border-slate-800 dark:bg-slate-500'
       }`;
       break;
     default:
@@ -182,4 +182,14 @@ export function paddingByType(type) {
 export function getLocalStorageValue(key, defaultValue) {
   const storedValue = localStorage.getItem(key);
   return storedValue ? JSON.parse(storedValue) : defaultValue;
+}
+
+export function formatTime(seconds) {
+  if (seconds <= 60) {
+    return seconds + ' seconds';
+  } else {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return minutes + ' minutes ' + remainingSeconds + ' seconds';
+  }
 }

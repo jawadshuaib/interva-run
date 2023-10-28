@@ -16,7 +16,7 @@ function App() {
   return (
     <Router>
       <Provider store={store}>
-        <div className="h-screen flex items-center justify-center bg-gray-100 dark:bg-slate-800">
+        <div className="h-screen flex items-center justify-center bg-slate-800">
           <Routes>
             <Route path="/" element={<Navigate to="/dashboard" />} />
             <Route path="/dashboard" element={<Dashboard />} />
