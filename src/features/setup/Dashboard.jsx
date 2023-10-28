@@ -10,7 +10,7 @@ import Explanation from './Explanation';
 
 export default function Dashboard() {
   const preset = {
-    minutes: '12',
+    minutes: '13',
     interval: '30',
   };
 
