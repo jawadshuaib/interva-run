@@ -21,6 +21,7 @@ function App() {
             <Route path="/" element={<Navigate to="/dashboard" />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/workout-plan/:minutes/:interval" element={<Plan />} />
+
             <Route path="/start-workout/:minutes" element={<Intervals />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>

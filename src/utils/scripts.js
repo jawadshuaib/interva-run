@@ -113,67 +113,70 @@ export function bgColorByType(type, withGradient = true) {
       bgColor = `${
         withGradient
           ? 'bg-gradient-to-br from-orange-600 to-orange-800'
-          : 'border-x-4 border-orange-900 bg-orange-800'
+          : 'border-l-4 border-slate-500 hover:border-orange-600 bg-slate-500'
       }`;
       break;
     case ExerciseType.SPRINT:
       bgColor = `${
         withGradient
           ? 'bg-gradient-to-br from-green-600 to-green-800'
-          : 'border-x-4 border-green-900 bg-green-800'
+          : 'border-l-4 border-slate-500 hover:border-green-600 bg-slate-500'
       } `;
       break;
     case ExerciseType.WALK:
       bgColor = `${
         withGradient
           ? 'bg-gradient-to-br from-yellow-600 to-yellow-800'
-          : 'border-x-4 border-yellow-900 bg-yellow-800'
+          : 'border-l-4 border-slate-500 hover:border-yellow-600 bg-slate-500'
       } `;
       break;
     case ExerciseType.COOLDOWN:
       bgColor = `${
         withGradient
           ? 'bg-gradient-to-br from-blue-600 to-blue-800'
-          : 'border-x-4 border-blue-900 bg-blue-800'
+          : 'border-l-4 border-slate-500 hover:border-blue-600 bg-slate-500'
       }`;
       break;
     case ExerciseType.FINISHED:
       bgColor = `${
         withGradient
           ? 'bg-gradient-to-br from-gray-400 to-gray-600'
-          : 'border-x-4 border-gray-700 bg-gray-500'
+          : 'border-l-4 border-slate-500 hover:border-slate-800 bg-slate-500'
       }`;
       break;
     default:
-      bgColor = `bg-gray-400`;
+      bgColor = `bg-slate-500`;
   }
 
   return bgColor;
 }
 
 export function paddingByType(type) {
-  let padding;
-  switch (type) {
-    case ExerciseType.WARMUP:
-      padding = 'py-8';
-      break;
-    case ExerciseType.SPRINT:
-      padding = 'py-3';
-      break;
-    case ExerciseType.WALK:
-      padding = 'py-0';
-      break;
-    case ExerciseType.COOLDOWN:
-      padding = 'py-6';
-      break;
-    case ExerciseType.FINISHED:
-      padding = 'py-4';
-      break;
-    default:
-      padding = 'py-0';
-  }
+  console.log(type);
+  return `py-2`;
 
-  return padding;
+  // let padding;
+  // switch (type) {
+  //   case ExerciseType.WARMUP:
+  //     padding = 'py-8';
+  //     break;
+  //   case ExerciseType.SPRINT:
+  //     padding = 'py-3';
+  //     break;
+  //   case ExerciseType.WALK:
+  //     padding = 'py-0';
+  //     break;
+  //   case ExerciseType.COOLDOWN:
+  //     padding = 'py-6';
+  //     break;
+  //   case ExerciseType.FINISHED:
+  //     padding = 'py-4';
+  //     break;
+  //   default:
+  //     padding = 'py-0';
+  // }
+
+  // return padding;
 }
 
 export function getLocalStorageValue(key, defaultValue) {
