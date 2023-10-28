@@ -11,7 +11,7 @@ import Button from '../../ui/Button';
 import List from '../../ui/List';
 import Heading from '../../ui/Heading';
 import Header from './Header';
-import Layout from './Layout';
+import Layout from '../../ui/Layout';
 
 export default function Plan() {
   const { minutes, interval } = useParams();

@@ -5,7 +5,7 @@ import Button from '../../ui/Button';
 import Input from '../../ui/Input';
 import Heading from '../../ui/Heading';
 import Header from './Header';
-import Layout from './Layout';
+import Layout from '../../ui/Layout';
 import Explanation from './Explanation';
 
 export default function Dashboard() {
@@ -49,7 +49,21 @@ export default function Dashboard() {
   return (
     <Layout>
       <Header />
-      <Explanation />
+      <Explanation>
+        <p className="text-xl text-slate-300 px-4 pt-4 text-left">
+          High intensity interval training markedly improves both aerobic and
+          anaerobic fitness. The following workout is based on the{' '}
+          <a
+            className="text-blue-300 underline hover:text-blue-400"
+            href="https://jps.biomedcentral.com/articles/10.1007/s12576-019-00676-7"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Tabata protocol
+          </a>
+          .
+        </p>
+      </Explanation>
       <div className="p-8">
         <Heading>How many minutes do you want to workout?</Heading>
 
