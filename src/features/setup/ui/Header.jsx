@@ -15,7 +15,6 @@ export default function Header() {
       onClick={handleGoHome}
     >
       <img src={iconPath} alt="Interva Run Icon" className="h-10 w-10 mr-2" />
-      {/* <h1 className="text-2xl font-bold">Interva Run</h1> */}
     </div>
   );
 }
