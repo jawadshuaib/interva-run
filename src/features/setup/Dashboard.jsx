@@ -7,9 +7,9 @@ import Heading from '../../ui/Heading';
 export default function Dashboard() {
   const navigate = useNavigate();
   // Total length of the workout in minutes
-  const [minutes, setMinutes] = React.useState(10);
+  const [minutes, setMinutes] = React.useState('10');
   // Length of each interval in seconds
-  const [interval, setInterval] = React.useState(30);
+  const [interval, setInterval] = React.useState('30');
 
   const handleCreateWorkoutPlan = () => {
     minutes > 0 &&
