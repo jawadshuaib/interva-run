@@ -1,11 +1,28 @@
-/* Fade-out effect for Confetti */
+body {
+  font-family: 'Noto Sans Kawi', sans-serif;
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+}
+
+/* Fade-out effect for useConfetti hook */
 .fade-out {
   transition: opacity 2s;
   opacity: 0;
 }
 
-body {
-  font-family: 'Noto Sans Kawi', sans-serif;
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+/* Blinking for useBlink custom hook */
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.blinking {
+  animation: blink 1s infinite;
 }

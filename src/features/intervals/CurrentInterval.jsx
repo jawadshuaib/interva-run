@@ -3,12 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Confetti from 'react-confetti';
 import { useConfetti } from './useConfetti';
+import useBlink from './useBlink';
 import { ExerciseType, bgColorByType } from '../../utils/scripts';
 import Button from '../../ui/Button';
 
 export default function CurrentInterval({ type, duration, sprintsRemaining }) {
   const navigate = useNavigate();
   const { showConfetti, fadeOut, celebrate } = useConfetti();
+  const isBlinking =
+    type === ExerciseType.SPRINT ? useBlink(2000) : useBlink(0);
+
   const bgColor = bgColorByType(type);
 
   useEffect(() => {
@@ -27,7 +31,11 @@ export default function CurrentInterval({ type, duration, sprintsRemaining }) {
       {showConfetti && (
         <Confetti gravity={0.3} className={fadeOut ? 'fade-out' : ''} />
       )}
-      <div className={`p-10 pt-20 rounded-lg shadow-xl ${bgColor}`}>
+      <div
+        className={`p-10 pt-20 rounded-lg shadow-xl ${bgColor} ${
+          isBlinking ? 'blinking' : ''
+        }`}
+      >
         <h2 className="text-7xl md:text-18xl font-bold text-white tracking-tighter">
           {type}
         </h2>
