@@ -16,7 +16,7 @@ export default function CurrentInterval({ type, duration, sprintsRemaining }) {
 
   // Blinking effect for sprints
   useEffect(() => {
-    if (type === ExerciseType.SPRINT) {
+    if (type === ExerciseType.SPRINT || type === ExerciseType.FINISHED) {
       triggerBlink();
     }
   }, [type]);
@@ -43,7 +43,7 @@ export default function CurrentInterval({ type, duration, sprintsRemaining }) {
           isBlinking ? 'blinking' : ''
         }`}
       >
-        <h2 className="text-7xl md:text-18xl font-bold text-white tracking-tighter">
+        <h2 className="text-6xl md:text-18xl font-bold text-white tracking-tighter">
           {type}
         </h2>
         {type !== ExerciseType.FINISHED && (
@@ -60,7 +60,7 @@ export default function CurrentInterval({ type, duration, sprintsRemaining }) {
       </div>
 
       {sprintsRemaining > 0 && (
-        <div className="flex items-center justify-center text-2xl  mt-3">
+        <div className="flex items-center justify-center text-2xl mt-3">
           Sprints remaining{' '}
           <span className="bg-yellow-300 ml-2 px-1 pt-1 rounded-lg  text-black">
             {sprintsRemaining}
