@@ -46,7 +46,7 @@ function Intervals() {
   }, [currentIntervalIndex, secondsRemaining, workout]);
 
   return (
-    <div>
+    <div className="h-screen w-screen flex justify-center items-center">
       <CurrentInterval
         // type="sprint"
         // duration={10}

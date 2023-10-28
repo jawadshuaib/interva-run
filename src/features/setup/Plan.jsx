@@ -29,7 +29,7 @@ export default function Plan() {
     <Layout>
       <Header />
       <div className="p-8">
-        <Heading level="h2" customClass="mb-4">
+        <Heading level="h2" customClass="mb-4 text-center">
           We created a {minutes} minute HIIT workout for you:
         </Heading>
         {/* Using Render Prop Pattern for List */}
