@@ -1,15 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-export default function useBlink(duration = 2000) {
-  const [isBlinking, setIsBlinking] = useState(true);
+// This hook will return a state "isBlinking" and a
+// function "triggerBlink" to start the blinking effect
+const useBlink = (timeoutDuration) => {
+  const [isBlinking, setIsBlinking] = useState(false);
 
-  useEffect(() => {
-    const timerId = setTimeout(() => {
+  const triggerBlink = () => {
+    setIsBlinking(true);
+
+    setTimeout(() => {
       setIsBlinking(false);
-    }, duration);
+    }, timeoutDuration);
+  };
 
-    return () => clearTimeout(timerId);
-  }, [duration]);
+  return [isBlinking, triggerBlink];
+};
 
-  return isBlinking;
-}
+export default useBlink;

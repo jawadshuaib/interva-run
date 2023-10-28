@@ -180,8 +180,11 @@ export function paddingByType(type) {
 }
 
 export function getLocalStorageValue(key, defaultValue) {
-  const storedValue = localStorage.getItem(key);
-  return storedValue ? JSON.parse(storedValue) : defaultValue;
+  let storedValue = localStorage.getItem(key);
+  storedValue = storedValue ? JSON.parse(storedValue) : defaultValue;
+  console.log(storedValue);
+  // Convert to string
+  return String(storedValue);
 }
 
 export function formatTime(seconds) {

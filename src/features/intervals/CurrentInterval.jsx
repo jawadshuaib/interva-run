@@ -10,11 +10,18 @@ import Button from '../../ui/Button';
 export default function CurrentInterval({ type, duration, sprintsRemaining }) {
   const navigate = useNavigate();
   const { showConfetti, fadeOut, celebrate } = useConfetti();
-  const isBlinking =
-    type === ExerciseType.SPRINT ? useBlink(2000) : useBlink(0);
+  const [isBlinking, triggerBlink] = useBlink(2000);
 
   const bgColor = bgColorByType(type);
 
+  // Blinking effect for sprints
+  useEffect(() => {
+    if (type === ExerciseType.SPRINT) {
+      triggerBlink();
+    }
+  }, [type]);
+
+  // Celebrate with confetti when the workout is finished
   useEffect(() => {
     if (type === ExerciseType.FINISHED && duration === 0) {
       celebrate();

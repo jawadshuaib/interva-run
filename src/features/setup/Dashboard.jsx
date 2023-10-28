@@ -18,14 +18,17 @@ export default function Dashboard() {
   // Total length of the workout in minutes
   // Get from local storage if it exists
   const [minutes, setMinutes] = React.useState(
-    getLocalStorageValue('minutes')
+    getLocalStorageValue('minutes') !== null &&
+      getLocalStorageValue('minutes') !== 'undefined'
       ? getLocalStorageValue('minutes')
       : preset.minutes,
   );
+
   // Length of each interval in seconds
   // Get from local storage if it exists
   const [interval, setInterval] = React.useState(
-    getLocalStorageValue('interval')
+    getLocalStorageValue('interval') !== null &&
+      getLocalStorageValue('interval') !== 'undefined'
       ? getLocalStorageValue('interval')
       : preset.interval,
   );
@@ -33,10 +36,10 @@ export default function Dashboard() {
   const handleCreateWorkoutPlan = () => {
     // Set the minutes and interval in local storage
     // if they are different from the preset values
-    minutes !== preset.minutes
+    minutes !== preset.minutes && minutes > 0
       ? localStorage.setItem('minutes', minutes)
       : localStorage.removeItem('minutes');
-    interval !== preset.interval
+    interval !== preset.interval && interval > 0
       ? localStorage.setItem('interval', interval)
       : localStorage.removeItem('interval');
 
