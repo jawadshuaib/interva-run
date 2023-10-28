@@ -11,7 +11,7 @@ import {
 import Button from '../../ui/Button';
 import List from '../../ui/List';
 import Heading from '../../ui/Heading';
-import Header from './Header';
+import Header from './ui/Header';
 import Layout from '../../ui/Layout';
 
 export default function Plan() {

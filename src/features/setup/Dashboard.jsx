@@ -4,9 +4,9 @@ import { getLocalStorageValue } from '../../utils/scripts';
 import Button from '../../ui/Button';
 import Input from '../../ui/Input';
 import Heading from '../../ui/Heading';
-import Header from './Header';
+import Header from './ui/Header';
 import Layout from '../../ui/Layout';
-import Explanation from './Explanation';
+import Explanation from './ui/Explanation';
 
 export default function Dashboard() {
   const preset = {

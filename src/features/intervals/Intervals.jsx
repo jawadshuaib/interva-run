@@ -1,11 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { generateHIIT, remainingSprints } from '../../utils/scripts';
 import CurrentInterval from './CurrentInterval';
 
 function Intervals() {
+  const navigate = useNavigate();
   const { minutes } = useParams();
-  const workout = generateHIIT(minutes);
+
+  // Check if minutes is a number
+  // If not, redirect to the dashboard
+  useEffect(() => {
+    if (isNaN(minutes)) {
+      // Redirect to dashboard
+      navigate('/dashboard');
+      return;
+    }
+  }, [minutes]);
+
+  const workout = generateHIIT(isNaN(minutes) ? 0 : minutes);
 
   const [currentIntervalIndex, setCurrentIntervalIndex] = useState(0);
   const [secondsRemaining, setSecondsRemaining] = useState(workout[0].duration);

@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import Footer from '../features/setup/Footer';
+import Footer from '../features/setup/ui/Footer';
 
 export default function Layout({ children, customClass }) {
   return (
     <div className={`${customClass} max-w-xlg`}>
-      <div className="bg-white  rounded shadow-md  dark:bg-slate-600">
+      <div className="bg-white  rounded-lg shadow-md  dark:bg-slate-600">
         {children}
       </div>
       <Footer />
